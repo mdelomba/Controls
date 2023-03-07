@@ -20,6 +20,8 @@ class EntryPoint extends Application {
         btn.setOnAction((e: ActionEvent) => {
             println("Hello World!")
         })
+
+        println("This is a test")
         
         val root = new StackPane(btn)
         primaryStage.setScene(new Scene(root, 300, 250))
