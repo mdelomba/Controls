@@ -6,25 +6,36 @@ import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.event.ActionEvent
 import javafx.scene.layout.StackPane
+import com.okayestprogrammer.controls.GroupBox
+import javafx.geometry.Insets
+import javafx.scene.layout.VBox
+import javafx.scene.layout.Priority
+import javafx.scene.layout.HBox
 
-object Main  {
+object Main {
   def main(args: Array[String]): Unit = {
-  Application.launch(classOf[EntryPoint], args: _*)
+    Application.launch(classOf[EntryPoint], args: _*)
   }
 }
 
 class EntryPoint extends Application {
-    override def start(primaryStage: Stage): Unit = {
-        primaryStage.setTitle("Hello World!")
-        val btn = new Button("DeLomba")
-        btn.setOnAction((e: ActionEvent) => {
-            println("Hello World!")
-        })
+  override def start(primaryStage: Stage): Unit = {
+    primaryStage.setTitle("Hello World!")
+    val btn = new Button("DeLomba")
+    btn.setOnAction((e: ActionEvent) => {
+      println("Hello World!")
+    })
 
-        println("This is a test")
-        
-        val root = new StackPane(btn)
-        primaryStage.setScene(new Scene(root, 300, 250))
-        primaryStage.show
+    val groupBox = new GroupBox("Hello World", btn)
+    HBox.setHgrow(groupBox, Priority.ALWAYS)
+    groupBox.setMaxWidth(Double.MaxValue)
+    groupBox.setMaxHeight(Double.MaxValue)
+
+    val vbox = new StackPane(groupBox) {
+      setPadding(new Insets(15.0))
     }
+
+    primaryStage.setScene(new Scene(vbox, 300, 250))
+    primaryStage.show
+  }
 }
