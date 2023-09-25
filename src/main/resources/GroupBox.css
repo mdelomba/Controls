@@ -1,15 +1,11 @@
-.group-box {
-    -fx-background-color: white;
-    -fx-background-radius: 5px;
-    -fx-border-width: 1px;
-    -fx-border-radius: 5px;
-    -fx-border-color: gray;
-    -fx-spacing: 5px;
+.group-box>.title {
+    -fx-text-fill: gray;
+}
+
+.group-box>.content {
     -fx-padding: 10px;
 }
 
-.group-box .title {
-    -fx-background-color: white;
-    -fx-padding: 2px;
-    -fx-pref-height: 20px;
+.group-box>.border {
+    -fx-stroke: gray;
 }

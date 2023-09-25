@@ -1,16 +1,15 @@
 package com.okayestprogrammer
 
 import javafx.application.Application
-import javafx.stage.Stage
+import javafx.event.ActionEvent
+import javafx.geometry.Insets
 import javafx.scene.Scene
 import javafx.scene.control.Button
-import javafx.event.ActionEvent
-import javafx.scene.layout.StackPane
+import javafx.scene.layout.{HBox, Priority, StackPane}
+import javafx.stage.Stage
+
 import com.okayestprogrammer.controls.GroupBox
-import javafx.geometry.Insets
 import javafx.scene.layout.VBox
-import javafx.scene.layout.Priority
-import javafx.scene.layout.HBox
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -21,21 +20,16 @@ object Main {
 class EntryPoint extends Application {
   override def start(primaryStage: Stage): Unit = {
     primaryStage.setTitle("Hello World!")
-    val btn = new Button("DeLomba")
-    btn.setOnAction((e: ActionEvent) => {
-      println("Hello World!")
-    })
 
-    val groupBox = new GroupBox("Hello World", btn)
-    HBox.setHgrow(groupBox, Priority.ALWAYS)
-    groupBox.setMaxWidth(Double.MaxValue)
-    groupBox.setMaxHeight(Double.MaxValue)
+    val groupBoxA = new GroupBox("Group Box Test 1", new Button("Merp"))
+    val groupBoxB = new GroupBox("Group Box Test 2", new Button("Derp"))
+    val groupBoxC = new GroupBox("Group Box Test 3", new Button("Berp"))
 
-    val vbox = new StackPane(groupBox) {
+    val vbox = new VBox(5.0, groupBoxA, groupBoxB, groupBoxC) {
       setPadding(new Insets(15.0))
     }
 
-    primaryStage.setScene(new Scene(vbox, 300, 250))
+    primaryStage.setScene(new Scene(vbox, 500, 400))
     primaryStage.show
   }
 }

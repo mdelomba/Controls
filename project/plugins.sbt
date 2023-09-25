@@ -4,3 +4,4 @@
 
 addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.5.3")
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.5")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.11.1")
